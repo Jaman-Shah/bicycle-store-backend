@@ -33,8 +33,35 @@ const getSingleBicycleFrmDB = async (id: string) => {
   }
 };
 
+// update bicycle
+const updateBicycleInDB = async (id: string, updateData: object) => {
+  try {
+    const result = await bicycleModel.findByIdAndUpdate(
+      { _id: id },
+      updateData,
+      { new: true, runValidators: true }
+    );
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// delete bicycle
+
+const deleteBicycleById = async (id: string) => {
+  try {
+    const result = await bicycleModel.findOneAndDelete({ _id: id });
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const BicycleServices = {
   createBicycleInDB,
   getAllBicyclesFromDB,
   getSingleBicycleFrmDB,
+  updateBicycleInDB,
+  deleteBicycleById,
 };

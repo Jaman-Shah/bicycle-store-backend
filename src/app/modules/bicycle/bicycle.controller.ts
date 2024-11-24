@@ -48,8 +48,44 @@ const getSingleBicycle = async (req: Request, res: Response) => {
   }
 };
 
+// bicycle updating
+
+const updateBicycle = async (req: Request, res: Response) => {
+  try {
+    const id = req.params.productId;
+    const updateData = req.body;
+    const result = await BicycleServices.updateBicycleInDB(id, updateData);
+    res.status(200).json({
+      message: "Bicycle updated successfully",
+      status: true,
+      data: result,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// delete single bicycle
+const deleteBicycle = async (req: Request, res: Response) => {
+  try {
+    const bicycleId = req.params.productId;
+
+    const result = await BicycleServices.deleteBicycleById(bicycleId);
+
+    res.status(200).json({
+      message: "Bicycle deleted successfully",
+      status: true,
+      data: {},
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const BicycleControllers = {
   createBicycle,
   getAllBicycles,
   getSingleBicycle,
+  updateBicycle,
+  deleteBicycle,
 };
