@@ -70,7 +70,7 @@ const deleteBicycle = async (req: Request, res: Response) => {
   try {
     const bicycleId = req.params.productId;
 
-    const result = await BicycleServices.deleteBicycleById(bicycleId);
+    await BicycleServices.deleteBicycleById(bicycleId);
 
     res.status(200).json({
       message: "Bicycle deleted successfully",
