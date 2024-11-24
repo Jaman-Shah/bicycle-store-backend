@@ -8,4 +8,8 @@ const router = express.Router();
 
 router.post("/", OrderControllers.createOrder);
 
+// getting total revenue endpoint
+
+router.get("/revenue", OrderControllers.getRevenue);
+
 export const OrderRouters = router;
