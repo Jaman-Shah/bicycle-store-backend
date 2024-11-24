@@ -17,7 +17,7 @@ const createBicycle = async (req: Request, res: Response) => {
   }
 };
 
-// bicycle getting application logics here:
+// all bicycles getting application logics here:
 
 const getAllBicycles = async (req: Request, res: Response) => {
   try {
@@ -32,7 +32,24 @@ const getAllBicycles = async (req: Request, res: Response) => {
   }
 };
 
+// single bicycle getting application logics here:
+
+const getSingleBicycle = async (req: Request, res: Response) => {
+  try {
+    const bicycleId = req.params.productId;
+    const result = await BicycleServices.getSingleBicycleFrmDB(bicycleId);
+    res.status(200).json({
+      status: true,
+      message: "Bicycle retrieved successfully",
+      data: result,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const BicycleControllers = {
   createBicycle,
   getAllBicycles,
+  getSingleBicycle,
 };

@@ -11,7 +11,7 @@ const createBicycleInDB = async (bicycle: Bicycle) => {
   }
 };
 
-// all bicycle getting from db logics here:
+// all bicycles getting from db logics here:
 
 const getAllBicyclesFromDB = async () => {
   try {
@@ -22,7 +22,19 @@ const getAllBicyclesFromDB = async () => {
   }
 };
 
+// single bicycle getting from db logics here:
+
+const getSingleBicycleFrmDB = async (id: string) => {
+  try {
+    const result = await bicycleModel.findOne({ _id: id });
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const BicycleServices = {
   createBicycleInDB,
   getAllBicyclesFromDB,
+  getSingleBicycleFrmDB,
 };
