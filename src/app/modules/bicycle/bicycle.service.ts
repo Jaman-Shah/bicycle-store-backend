@@ -11,6 +11,18 @@ const createBicycleInDB = async (bicycle: Bicycle) => {
   }
 };
 
+// all bicycle getting from db logics here:
+
+const getAllBicyclesFromDB = async () => {
+  try {
+    const result = await bicycleModel.find();
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const BicycleServices = {
   createBicycleInDB,
+  getAllBicyclesFromDB,
 };

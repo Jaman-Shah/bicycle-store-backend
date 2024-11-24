@@ -17,6 +17,22 @@ const createBicycle = async (req: Request, res: Response) => {
   }
 };
 
+// bicycle getting application logics here:
+
+const getAllBicycles = async (req: Request, res: Response) => {
+  try {
+    const result = await BicycleServices.getAllBicyclesFromDB();
+    res.status(200).json({
+      status: true,
+      message: "Bicycles retrieved successfully",
+      data: result,
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const BicycleControllers = {
   createBicycle,
+  getAllBicycles,
 };
