@@ -1,4 +1,4 @@
-# Bicycle Store B4A2V4
+# Bicycle Store
 
 A robust **Bicycle Store** web application built with **Express.js**, **TypeScript**, and **MongoDB**. This application manages bicycles (products) and customer orders, supports CRUD operations, and offers detailed revenue calculations through MongoDB's aggregation pipeline.
 
@@ -53,6 +53,5 @@ The backend is built with **Express.js**, and the application uses **MongoDB** t
 Clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/your-username/bicycle-store-b4a2v4.git
-cd bicycle-store-b4a2v4
+git clone https://github.com/Jaman-Shah/bicycle-store-backend.git
 ```
