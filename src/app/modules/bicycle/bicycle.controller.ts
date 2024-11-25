@@ -38,6 +38,12 @@ const getSingleBicycle = async (req: Request, res: Response) => {
   try {
     const bicycleId = req.params.productId;
     const result = await BicycleServices.getSingleBicycleFrmDB(bicycleId);
+    if (!result) {
+      return res.status(404).json({
+        status: false,
+        message: "Product Not Found",
+      });
+    }
     res.status(200).json({
       status: true,
       message: "Bicycle retrieved successfully",
